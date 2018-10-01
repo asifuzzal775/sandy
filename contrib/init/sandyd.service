@@ -1,0 +1,26 @@
+[Unit]
+Description=SDY's distributed currency daemon
+After=network.target
+
+[Service]
+User=sandy
+Group=sandy
+
+Type=forking
+PIDFile=/var/lib/sandyd/sandyd.pid
+
+ExecStart=/usr/bin/sandyd -daemon -pid=/var/lib/sandyd/sandyd.pid \
+          -conf=/etc/sandy/sandy.conf -datadir=/var/lib/sandyd
+
+ExecStop=-/usr/bin/sandy-cli -conf=/etc/sandy/sandy.conf \
+         -datadir=/var/lib/sandyd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

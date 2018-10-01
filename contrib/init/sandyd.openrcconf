@@ -1,0 +1,26 @@
+# /etc/conf.d/sandyd: config file for /etc/init.d/sandyd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/sandy/sandy.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/sandyd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/sandyd.pid"
+
+# Where to write sandyd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/sandyd"
+
+# User and group to own sandyd process
+#BITCOIND_USER="sandy"
+#BITCOIND_GROUP="sandy"
+
+# Path to sandyd executable
+#BITCOIND_BIN="/usr/bin/sandyd"
+
+# Nice value to run sandyd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
